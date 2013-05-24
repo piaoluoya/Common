@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>提示</title>
+<link href="style/common.css" rel="stylesheet" type="text/css" />
+<script src="http://lib.sinaapp.com/js/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
+<style type="text/css">
+.C_hint{border-width:1px;border-style:solid;padding:10px 10px 10px 5px;margin:5px 0 15px;border-radius:3px;clear:both;}
+.S_line1{border-color:#d9d9d9;}
+.S_bg1{background-color:#f7f7f7;}
+.C_hint_arrow{position:absolute;margin:-18px 0 0;width:22px;cursor:default;padding-left:10px;}
+.C_hint_arrow *{font-family:"SimSun";overflow:hidden;font-size:12px;line-height:1.231;display:block;height:12px;}
+.S_line1_c{color:#d9d9d9;}
+.C_hint_arrow span{margin:-11px 0 0;}
+.S_bg1_c{color:#f7f7f7;}
+</style>
+<script type="text/javascript">
+$().ready(function(){
+	$('#btn_click').mouseover(function(){
+		x = event.x - 20;
+		y = event.y + document.body.scrollTop + 5;
+		$('.C_hint').css({'position':'absolute','left':x+'px','top':y+'px'}).show();
+	});
+	
+	$('.C_hint').mouseout(function(){
+		$(this).hide();
+	});
+});
+</script>
+</head>
+<body>
+
+<div style="float:left;width:50px;margin:30px;" class="pointer color-b clearfix" id="btn_click">点击</div>
+<div class="C_hint S_line1 S_bg1 w-200 hidden">
+   <div class="C_hint_arrow"><em class="S_line1_c">◆</em><span class="S_bg1_c">◆</span></div>
+   <div id="hint_info">提示内容</div>
+</div>
+</body>
+</html>
